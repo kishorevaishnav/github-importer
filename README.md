@@ -10,6 +10,28 @@ Before running the GitHub Importer, ensure you have the following prerequisites 
 
 ## Getting Started
 
+
+### Using Pre-built Binaries
+If you don't have Go installed or prefer not to build the application yourself, you can download pre-built binaries for your platform from the [binaries](https://github.com/kishorevaishnav/github-importer/tree/main/bin).
+
+1. Go to the [bin folder](https://github.com/kishorevaishnav/github-importer/tree/main/bin).
+
+2. Download the binary for your operating system and architecture (e.g., `github-importer-linux-amd64` for Linux, `github-importer-darwin-amd64` for macOS, `github-importer-windows-amd64.exe` for Windows).
+3. For Linux: Make the binary executable:
+   ```shell
+   chmod +x github-importer-linux-amd64
+    ./github-importer-linux-amd64
+   ```
+   For MacOS: Make the binary executable:
+   ```shell
+   chmod +x github-importer-darwin-amd64
+    ./github-importer-darwin-amd64
+   ```
+   For Windows: Just double click `github-importer-windows-amd64.exe`
+4. Visit the following URL in your web browser: http://localhost:8080.
+
+### Building from Source
+
 1. Clone the repository to your local machine:
    ```shell
    git clone https://github.com/kishorevaishnav/github-importer.git
