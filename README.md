@@ -1,6 +1,10 @@
 # GitHub Importer
 
 GitHub Importer is a simple Go application that allows you to upload an XLSX file containing issue details and create GitHub issues. You can also assign users to the created issues and apply labels to them. To use this tool, follow the instructions below.
+![Screenshot 2023-09-27 at 2 49 26 PM](https://github.com/kishorevaishnav/github-importer/assets/136354/39b09aaa-98db-4d6b-a042-213d14e977d3)
+
+![Screenshot 2023-09-27 at 2 51 02 PM](https://github.com/kishorevaishnav/github-importer/assets/136354/c92c82ef-6d71-45ec-b9ae-478e0d8db153)
+
 
 ## Prerequisites
 
