@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"embed"
 	"fmt"
 	"html/template"
 	"io"
@@ -9,8 +10,13 @@ import (
 	"strings"
 )
 
+//go:embed static/*.html
+var content embed.FS
+
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-	renderHTML(w, "static/index.html", nil)
+	tmpl := template.Must(template.ParseFS(content, "static/*.html"))
+
+	renderHTML(w, tmpl, "index.html", nil)
 }
 
 func uploadHandler(w http.ResponseWriter, r *http.Request) {
@@ -67,11 +73,10 @@ func uploadHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "Success: Your request was processed successfully.\n\nHere are the Github Issue URLs:\n"+strings.Join(ghURLs, "\n"))
 }
 
-func renderHTML(w http.ResponseWriter, tmpl string, data interface{}) {
-	t, err := template.ParseFiles(tmpl)
+func renderHTML(w http.ResponseWriter, t *template.Template, tmplFile string, data interface{}) {
+	err := t.ExecuteTemplate(w, tmplFile, data)
 	if err != nil {
 		http.Error(w, "Error rendering template", http.StatusInternalServerError)
 		return
 	}
-	t.Execute(w, data)
 }
